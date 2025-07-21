@@ -5,15 +5,16 @@ The original `planet-generator.js` (4223 lines) has been broken down into **3 lo
 
 ## File Structure
 
-### Original Files
-- `planet-generator.html` - Main HTML file (updated to reference new modules)
+### Root Directory
+- `planet-generator.html` - Main HTML file (updated to reference modular files)
 - `planet-generator.css` - Styles (unchanged) 
-- `planet-generator.js` - **NOW CORE MODULE** (1475 lines)
+- `star-background.png` - Background image
+- `js/` - **JavaScript modules folder**
 
-### New Modular Files
-- `planet-generator-utils.js` - **500 lines** - Utilities and data structures
-- `planet-generator-algorithms.js` - **2547 lines** - Planet generation algorithms
-- `planet-generator.js` - **1475 lines** - Core UI, rendering, camera controls
+### JavaScript Modules (js/ folder)
+- `js/planet-generator-utils.js` - **500 lines** - Utilities and data structures
+- `js/planet-generator-algorithms.js` - **2547 lines** - Planet generation algorithms
+- `js/planet-generator.js` - **1475 lines** - Core UI, rendering, camera controls
 
 ## Module Breakdown
 
@@ -47,14 +48,28 @@ The original `planet-generator.js` (4223 lines) has been broken down into **3 lo
 - **Maintainability**: Much easier to find and modify specific functionality
 - **Clarity**: Each file has a clear, focused purpose  
 - **Smaller files**: No more scrolling through 4000+ lines
-- **Logical organization**: Related functions grouped together
+- **Logical organization**: Related functions grouped together in `js/` folder
 - **Preserved functionality**: All original features work exactly the same
+- **Clean structure**: JavaScript files organized in their own directory
+
+## Project Structure
+```
+planet-generator/
+├── js/
+│   ├── planet-generator-utils.js      (500 lines)
+│   ├── planet-generator-algorithms.js (2547 lines) 
+│   └── planet-generator.js            (1475 lines)
+├── planet-generator.html
+├── planet-generator.css
+├── star-background.png
+└── MODULAR_README.md
+```
 
 ## Loading Order
 The HTML loads modules in dependency order:
-1. `planet-generator-utils.js` - Base utilities and data structures
-2. `planet-generator-algorithms.js` - Planet generation functions  
-3. `planet-generator.js` - UI and rendering (references the above)
+1. `js/planet-generator-utils.js` - Base utilities and data structures
+2. `js/planet-generator-algorithms.js` - Planet generation functions  
+3. `js/planet-generator.js` - UI and rendering (references the above)
 
 ## File Size Comparison
 - **Before**: 1 file with 4223 lines
